@@ -4,7 +4,8 @@ ourRequest.open("GET",'https://learnwebcode.github.io/json-example/animals-1.jso
 
 
 ourRequest.onload = function(){
-    console.log(ourRequest.responseText);
+    var ourData= JSON.parse(ourRequest.responseText);
+    console.log(ourData[0]);
 };
 
 
