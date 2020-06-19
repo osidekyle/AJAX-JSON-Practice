@@ -1,16 +1,11 @@
-var thePets=[
-    {
-    "name":"Meowsalot",
-    "species": "cat",
-    "favFood":"tuna"
-    },
-    {
-    "name":"Barkey",
-    "species": "dog",
-    "favFood":"carrots"
-    }
-]
+var ourRequest = new XMLHttpRequest();
+
+ourRequest.open("GET",'https://learnwebcode.github.io/json-example/animals-1.json');
 
 
+ourRequest.onload = function(){
+    console.log(ourRequest.responseText);
+};
 
-thePets[1].name
+
+ourRequest.send();
