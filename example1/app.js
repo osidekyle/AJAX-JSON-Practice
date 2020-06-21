@@ -1,12 +1,35 @@
-var ourRequest = new XMLHttpRequest();
+var button = document.getElementById("btn");
+var animalContainer = document.getElementById("animal-info");
 
-ourRequest.open("GET",'https://learnwebcode.github.io/json-example/animals-1.json');
+button.addEventListener('click',function(){
+    var ourRequest = new XMLHttpRequest();
+
+    ourRequest.open("GET",'https://learnwebcode.github.io/json-example/animals-1.json');
 
 
-ourRequest.onload = function(){
+    ourRequest.onload = function(){
     var ourData= JSON.parse(ourRequest.responseText);
-    console.log(ourData[0]);
+    renderHTML(ourData);
 };
 
 
-ourRequest.send();
+    ourRequest.send();
+});
+
+function renderHTML(data){
+    var htmlString="";
+
+    for(let i=0;i<data.length;i++){
+        htmlString+="<p>"+data[i].name + "is a" + data[i].species + ".<p>"
+    }
+
+    animalContainer.insertAdjacentHTML('beforeend',data)
+}
+
+
+
+
+
+
+
+
